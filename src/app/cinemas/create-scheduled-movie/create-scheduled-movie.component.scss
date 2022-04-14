@@ -1,0 +1,13 @@
+.flex-column {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+
+  div {
+    margin: 10px;
+  }
+}

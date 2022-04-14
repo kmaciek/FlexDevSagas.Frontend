@@ -1,0 +1,23 @@
+.cinema-details-container {
+  padding: 20px;
+
+  .cinema-details-auditoriums{
+    display: flex;
+    flex-direction: row;
+  }
+  .auditorium-row {
+    span {
+      margin: 10px;
+    }
+  }
+}
+
+.cinema-details-auditorium {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+table {
+  width: 80%;
+  margin-left: 10%;
+}
