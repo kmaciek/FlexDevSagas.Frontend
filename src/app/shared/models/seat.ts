@@ -1,11 +1,11 @@
 export class Seat {
-  Id: string;
-  Number: number;
-  Reserved: boolean;
+  id: string;
+  number: number;
+  isReserved: boolean;
 
   constructor(id: string, number: number, reserved: boolean) {
-    this.Id = id;
-    this.Number = number;
-    this.Reserved = reserved;
+    this.id = id;
+    this.number = number;
+    this.isReserved = reserved;
   }
 }

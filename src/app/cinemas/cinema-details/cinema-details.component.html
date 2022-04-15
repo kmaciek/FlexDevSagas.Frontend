@@ -6,11 +6,7 @@
     <div *ngFor="let auditorium of cinema.auditoriums" class="cinema-details-auditorium">
       <button routerLink="/cinemas/addMovie/{{cinema.id}}/{{auditorium.id}}">Dodaj film</button>
       <h3>{{auditorium.number}}</h3>
-      <div class="cinema-details-auditorium-seats">
-        <div *ngFor="let row of auditorium.rows" class="cinema-details-auditorium-seat" class="auditorium-row">
-          <span *ngFor="let seat of row.seats">x</span>
-        </div>
-      </div>
+      <app-cinema-seats [rows]="auditorium.rows"></app-cinema-seats>
     </div>
   </div>
   <h2>Filmy</h2>
@@ -37,6 +33,12 @@
     <ng-container matColumnDef="end">
       <th mat-header-cell *matHeaderCellDef> End</th>
       <td mat-cell *matCellDef="let element"> {{ element.end | date: 'dd-MM-YYYY HH:mm' }} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element"><button mat-button routerLink="/cinemas/book/{{element.id}}">Zarezerwuj</button></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

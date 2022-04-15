@@ -13,7 +13,7 @@ export class CinemaDetailsComponent implements OnInit {
 
   cinema!: Cinema;
   scheduledMovies!: ScheduledMovie[];
-  displayedColumns: string[] = ['id', 'name', 'start', 'end'];
+  displayedColumns: string[] = ['id', 'name', 'start', 'end', 'actions'];
 
   constructor(private route: ActivatedRoute, private service: BackendService) {}
 
@@ -24,7 +24,6 @@ export class CinemaDetailsComponent implements OnInit {
       });
       this.service.getScheduledMoviesForCinema(result['id']).subscribe(result => {
         this.scheduledMovies = result;
-        console.log(result);
       });
     });
   }

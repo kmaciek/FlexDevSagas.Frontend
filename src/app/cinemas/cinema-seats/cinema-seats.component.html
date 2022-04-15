@@ -1,0 +1,11 @@
+<div class="cinema-details-auditorium-seats">
+  <div *ngFor="let row of rows" class="cinema-details-auditorium-seat" class="auditorium-row">
+    <div *ngIf="!showButtons">
+      <span *ngFor="let seat of row.seats" [class]="seat.isReserved == true ? 'reserved' : ''">x</span>
+    </div>
+    <div *ngIf="showButtons">
+      <button mat-button (click)="onButtonCLick(row, seat)" *ngFor="let seat of row.seats"
+              [class]="seatReserverd(seat) ? 'reserved-seat' : ''" [disabled]="seat.isReserved == true">x</button>
+    </div>
+  </div>
+</div>

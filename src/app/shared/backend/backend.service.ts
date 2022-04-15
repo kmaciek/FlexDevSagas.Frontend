@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Cinema} from "../models/cinema";
 import {ScheduledMovie} from "../models/scheduled-movie";
 import {Movie} from "../models/movie";
+import {ScheduledMovieBookingDetails} from "../models/scheduled-movie-booking-details";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,16 @@ export class BackendService {
   createScheduledMovie(data: { start: any; auditoriumId: string; cinemaId: string, price: any; movieId: any; end: any }) {
     return this.http.post(this.baseUrl + "/scheduledMovies", data);
 
+  }
+
+  getScheduledMovieBookingDetails(scheduledMovieId: string): Observable<ScheduledMovieBookingDetails> {
+    return this.http.get<ScheduledMovieBookingDetails>(this.baseUrl + "/booking/getScheduledMovieBookingDetails/" + scheduledMovieId);
+  }
+
+  createOrder(scheduledMovieId: string, seats: string[]) {
+    return this.http.post(this.baseUrl + "/orders", {
+      scheduledMovieId: scheduledMovieId,
+      seats: seats
+    });
   }
 }

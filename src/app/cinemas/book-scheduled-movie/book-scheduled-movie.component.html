@@ -1,0 +1,18 @@
+<div class="booking-container">
+  <div *ngIf="canDisplayTable();">
+    <h1>{{ scheduledMovieBookingDetails.movieName }}</h1>
+    <h3>Start: {{ scheduledMovieBookingDetails.start | date: 'dd-MM-YYYY HH:mm'}}</h3>
+    <h3>Start: {{ scheduledMovieBookingDetails.end | date: 'dd-MM-YYYY HH:mm'}}</h3>
+    <h3>Price: {{ scheduledMovieBookingDetails.price }}</h3>
+    <h3>Free seats: {{ scheduledMovieBookingDetails.reservedSeats }}
+      /{{ scheduledMovieBookingDetails.auditoriumCapacity }}</h3>
+    <h3>Auditorium: {{ scheduledMovieBookingDetails.auditoriumNumber }}</h3>
+    <app-cinema-seats [rows]="scheduledMovieBookingDetails.rows" [showButtons]="true"></app-cinema-seats>
+    <br/>
+    <h3>Ilość zarezerwowanych miejsc: {{getSelectedSeatsCount()}}</h3>
+    <button mat-button (click)="submit()">Submit</button>
+  </div>
+  <div *ngIf="!canDisplayTable();">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

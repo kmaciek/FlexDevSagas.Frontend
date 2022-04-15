@@ -1,0 +1,26 @@
+.reserved {
+  color: red;
+  font-weight: bold;
+}
+
+.reserved-seat {
+  background: yellow;
+}
+
+button:disabled {
+  background: red;
+}
+
+
+.cinema-details-auditorium-seats {
+  display: flex;
+  flex-direction: column;
+  .auditorium-row {
+    display: flex;
+    flex-direction: row;
+
+    span {
+      margin: 10px;
+    }
+  }
+}

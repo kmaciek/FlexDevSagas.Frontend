@@ -21,35 +21,44 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
+import { CinemaSeatsComponent } from './cinema-seats/cinema-seats.component';
+import { BookScheduledMovieComponent } from './book-scheduled-movie/book-scheduled-movie.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
-  declarations: [
-    ListComponent,
-    CinemaComponent,
-    CinemaDetailsComponent,
-    CreateScheduledMovieComponent
-  ],
-  imports: [
-    CommonModule,
-    CinemasRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    NgxMatNativeDateModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTableModule
-  ],
-  providers: [
-    MatDatepickerModule,
-  ],
+    declarations: [
+        ListComponent,
+        CinemaComponent,
+        CinemaDetailsComponent,
+        CreateScheduledMovieComponent,
+        CinemaSeatsComponent,
+        BookScheduledMovieComponent
+    ],
+    imports: [
+        CommonModule,
+        CinemasRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        NgxMatDatetimePickerModule,
+        NgxMatTimepickerModule,
+        NgxMatNativeDateModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTableModule,
+        MatProgressSpinnerModule
+    ],
+    providers: [
+        MatDatepickerModule,
+    ],
+    exports: [
+        CinemaSeatsComponent
+    ]
 })
 export class CinemasModule { }
