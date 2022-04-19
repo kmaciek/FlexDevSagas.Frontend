@@ -46,4 +46,8 @@ export class BackendService {
       seats: seats
     });
   }
+
+  getOrders(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "/orders");
+  }
 }

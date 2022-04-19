@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'movies',
     loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule)
   },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
+  },
   { path: '**', redirectTo: '' }
 ];
 
