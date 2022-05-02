@@ -5,6 +5,9 @@ import {Cinema} from "../models/cinema";
 import {ScheduledMovie} from "../models/scheduled-movie";
 import {Movie} from "../models/movie";
 import {ScheduledMovieBookingDetails} from "../models/scheduled-movie-booking-details";
+import {Order} from "../models/order";
+import {OrderDetails} from "../models/order-details";
+import {Reservation} from "../models/reservation";
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +50,27 @@ export class BackendService {
     });
   }
 
-  getOrders(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + "/orders");
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.baseUrl + "/orders");
+  }
+
+  getOrderDetails(orderId: string): Observable<OrderDetails> {
+    return this.http.get<OrderDetails>(this.baseUrl + "/orders/" + orderId);
+  }
+
+  orderReservationPaid(id: string): Observable<any> {
+    return this.http.get(this.baseUrl + "/orders/" + id + "/paid");
+  }
+
+  orderTicketsCollected(id: string): Observable<any> {
+    return this.http.get(this.baseUrl + "/orders/" + id + "/ticketsCollected");
+  }
+
+  orderCancelled(id: string): Observable<any> {
+    return this.http.get(this.baseUrl + "/orders/" + id + "/cancelled");
+  }
+
+  getReservations(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.baseUrl + "/booking/reservations");
   }
 }

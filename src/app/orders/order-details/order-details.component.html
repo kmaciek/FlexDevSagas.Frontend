@@ -1,0 +1,28 @@
+<div class="order-details-container">
+  <div *ngIf="!isProcessing">
+    <p><strong>Id: </strong>{{ orderDetails.id}}</p>
+    <p><strong>Status: </strong>{{ orderDetails.orderStatus}}</p>
+    <p><strong>Total price: </strong>{{ orderDetails.totalPrice}}</p>
+    <p><strong>Movies: </strong></p>
+    <div *ngFor="let movie of orderDetails.movies">
+      <p><strong>{{ movie.title }}</strong></p>
+      <p>Seats: </p>
+      <div *ngFor="let seat of movie.reservedSeats">
+        <p>{{ seat.row }}-{{ seat.number }}</p>
+      </div>
+    </div>
+    <p>
+      <button (click)="reservationPaid()"
+              [disabled]="orderDetails.orderStatus !== 'Created' && orderDetails.orderStatus !== 'Reserved'">Reservation
+        paid
+      </button>
+      <button (click)="ticketsCollected()" [disabled]="orderDetails.orderStatus !== 'Paid'">Tickets collected</button>
+    </p>
+    <p>
+      <button (click)="orderCancelled()">Cancel</button>
+    </p>
+  </div>
+  <div *ngIf="isProcessing">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

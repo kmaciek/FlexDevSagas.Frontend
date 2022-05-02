@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from "../../shared/backend/backend.service";
+import {Order} from "../../shared/models/order";
 
 @Component({
   selector: 'app-orders-table',
@@ -8,11 +9,14 @@ import {BackendService} from "../../shared/backend/backend.service";
 })
 export class OrdersTableComponent implements OnInit {
 
+  orders!: Order[];
+  displayedColumns: string[] = ['id', 'numberOfSeats', 'state', 'totalPrice', 'actions'];
+
   constructor(private service: BackendService) { }
 
   ngOnInit(): void {
     this.service.getOrders().subscribe(result => {
-      console.log(result);
+      this.orders = result;
     })
   }
 
